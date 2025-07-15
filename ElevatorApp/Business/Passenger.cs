@@ -7,14 +7,10 @@ namespace ElevatorApp.Business
     /// </summary>
     public class Passenger
     {
-        /// <summary>
-        /// Gets the floor where the passenger starts.
-        /// </summary>
+        /// <inheritdoc/>
         public int StartFloor { get; }
 
-        /// <summary>
-        /// Gets the floor where the passenger wants to go.
-        /// </summary>
+        /// <inheritdoc/>
         public int DestinationFloor { get; }
 
         /// <summary>

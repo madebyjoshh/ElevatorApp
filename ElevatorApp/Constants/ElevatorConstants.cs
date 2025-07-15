@@ -11,16 +11,6 @@
         public const int MaxFloor = 10;
 
         /// <summary>
-        /// The lowest floor number accessible by the elevator.
-        /// </summary>
-        public const int MinFloor = 0;
-
-        /// <summary>
-        /// The default floor where the elevator starts or resets.
-        /// </summary>
-        public const int DefaUltFloor = 0;
-
-        /// <summary>
         /// The total number of elevators in the system.
         /// </summary>
         public const int ElevatorCount = 4;
@@ -33,6 +23,6 @@
         /// <summary>
         /// The delay in milliseconds to simulate the time taken for the elevator to move between floors. Default is 10 seconds.
         /// </summary>
-        public const int DelayInMilliseconds = 10000;
+        public const int DelayInMilliseconds = 1000;
     }
 }

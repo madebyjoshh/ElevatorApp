@@ -42,7 +42,7 @@ namespace ElevatorApp
         /// Generates a random passenger request with random start and destination floors.
         /// </summary>
         /// <returns>A new <see cref="Passenger"/> instance.</returns>
-        private Passenger GeneratePassengerRequest()
+        public Passenger GeneratePassengerRequest()
         {
             int start = _random.Next(1, ElevatorConstants.MaxFloor + 1);
             int dest;

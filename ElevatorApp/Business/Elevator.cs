@@ -10,21 +10,12 @@ namespace ElevatorApp.Business
     /// </summary>
     public class Elevator : IElevator, IMover, IRequestHandler
     {
-        /// <summary>
-        /// Gets the unique identifier of the elevator.
-        /// </summary>
+        /// <inheritdoc/>
         public int Id { get; }
 
-        /// <summary>
-        /// Gets the current floor where the elevator is located.
-        /// </summary>
+        /// <inheritdoc/>
         public int CurrentFloor { get; private set; }
-
-        /// <summary>
-        /// Gets a value indicating whether the elevator is currently moving.
-        /// </summary>
-        public bool IsMoving { get; private set; }
-
+        
         public Direction Direction { get; private set; } = Direction.None;
         private readonly ConcurrentQueue<Passenger> passengerQueue = new();
         private readonly object moveLock = new();
@@ -40,18 +31,13 @@ namespace ElevatorApp.Business
             CurrentFloor = startFloor;
         }
 
-        /// <summary>
-        /// Displays the current status of the elevator, including its floor and passenger queue count.
-        /// </summary>
+        /// <inheritdoc/>
         public void DisplayStatus()
         {
-            Console.WriteLine($"Elevator {Id} at Floor {CurrentFloor} with {passengerQueue.Count} passenger(s) in queue");
+            Console.WriteLine($"Elevator {Id} at Floor {CurrentFloor}");
         }
 
-        /// <summary>
-        /// Assigns a passenger request to the elevator.
-        /// </summary>
-        /// <param name="passenger">The passenger to assign.</param>
+        /// <inheritdoc/>
         public void AssignRequest(Passenger passenger)
         {
             lock (moveLock)
@@ -68,10 +54,7 @@ namespace ElevatorApp.Business
             }
         }
 
-        /// <summary>
-        /// Processes all assigned passenger requests, moving the elevator as needed.
-        /// </summary>
-        /// <returns>A task representing the asynchronous operation.</returns>
+        /// <inheritdoc/>
         public async Task StepAsync()
         {
             while (!passengerQueue.IsEmpty)
@@ -91,11 +74,7 @@ namespace ElevatorApp.Business
             }
         }
 
-        /// <summary>
-        /// Moves the elevator to the specified floor asynchronously.
-        /// </summary>
-        /// <param name="targetFloor">The floor to move to.</param>
-        /// <returns>A task representing the asynchronous operation.</returns>
+        /// <inheritdoc/>
         public async Task MoveToFloorAsync(int targetFloor)
         {
             // Determine movement direction

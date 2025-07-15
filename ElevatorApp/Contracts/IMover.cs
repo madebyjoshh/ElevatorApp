@@ -11,10 +11,5 @@
         /// <param name="destinationFloor">The floor number to move to.</param>
         /// <returns>A task representing the asynchronous move operation.</returns>
         Task MoveToFloorAsync(int destinationFloor);
-
-        /// <summary>
-        /// Gets a value indicating whether the mover is currently moving.
-        /// </summary>
-        bool IsMoving { get; }
     }
 }
