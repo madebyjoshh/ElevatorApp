@@ -45,7 +45,13 @@ namespace ElevatorApp
         private Passenger GeneratePassengerRequest()
         {
             int start = _random.Next(1, ElevatorConstants.MaxFloor + 1);
-            int dest = _random.Next(1, ElevatorConstants.MaxFloor + 1);
+            int dest;
+
+            do
+            {
+                dest = _random.Next(1, ElevatorConstants.MaxFloor + 1);
+            } while (dest == start);
+
             return new Passenger(start, dest);
         }
 
