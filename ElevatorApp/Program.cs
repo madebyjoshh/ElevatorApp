@@ -14,7 +14,12 @@ class Program
         for (int step = 0; step < ElevatorConstants.SimulationSteps; step++)
         {
             Console.WriteLine($"\n=== Simulation Step {step} ===");
-            simulator.DisplayElevators();
+
+            foreach (var e in elevators)
+            {
+                e.DisplayStatus();
+            }
+
             await simulator.RunStepAsync();
         }
     }

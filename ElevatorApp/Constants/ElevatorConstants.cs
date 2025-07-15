@@ -30,6 +30,9 @@
         /// </summary>
         public const int SimulationSteps = 10;
 
-        public const int DelayInMilliseconds = 1000;
+        /// <summary>
+        /// The delay in milliseconds to simulate the time taken for the elevator to move between floors. Default is 10 seconds.
+        /// </summary>
+        public const int DelayInMilliseconds = 10000;
     }
 }

@@ -18,16 +18,6 @@ namespace ElevatorApp.Business
         public int DestinationFloor { get; }
 
         /// <summary>
-        /// Gets a value indicating whether the passenger wants to go up.
-        /// </summary>
-        public bool WantsToGoUp => DestinationFloor > StartFloor;
-
-        /// <summary>
-        /// Gets the time when the passenger requested the elevator.
-        /// </summary>
-        public DateTime RequestTime { get; }
-
-        /// <summary>
         /// Initializes a new instance of the <see cref="Passenger"/> class.
         /// </summary>
         /// <param name="start">The starting floor.</param>
