@@ -11,24 +11,22 @@ class Program
         var elevators = CreateElevators(ElevatorConstants.ElevatorCount, ElevatorConstants.MaxFloor, random);
         var simulator = new SimulateElevator(elevators, random);
 
-        for (int step = 0; step < ElevatorConstants.SimulationSteps; step++)
+        for (int step = 1; step < ElevatorConstants.SimulationSteps; step++)
         {
-            Console.WriteLine($"\n=== Simulation Step {step} ===");
-
-            foreach (var e in elevators)
-            {
-                e.DisplayStatus();
-            }
-
+            DisplaySimulationStep(step, elevators);
             await simulator.RunStepAsync();
         }
     }
 
-    static List<IElevator> CreateElevators(int count, int maxFloor, Random random)
+    static List<IElevator> CreateElevators(int count, int maxFloor, Random random) =>
+        Enumerable.Range(1, count)
+                  .Select(id => new Elevator(id, random.Next(1, maxFloor + 1)))
+                  .Cast<IElevator>()
+                  .ToList();
+
+    static void DisplaySimulationStep(int step, List<IElevator> elevators)
     {
-        return Enumerable.Range(1, count)
-            .Select(id => new Elevator(id, random.Next(1, maxFloor + 1)))
-            .Cast<IElevator>()
-            .ToList();
+        Console.WriteLine($"\n-------- Simulation {step} ---------");
+        elevators.ForEach(e => e.DisplayStatus());
     }
 }

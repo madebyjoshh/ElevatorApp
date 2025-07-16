@@ -47,7 +47,7 @@ namespace ElevatorApp.Business
                 var direction = passenger.DestinationFloor > passenger.StartFloor
                     ? Direction.Up
                     : Direction.Down;
-
+                Console.WriteLine($"\n ------- Assign to nearest elevator -------");
                 Console.WriteLine(
                     $"Passenger requested {direction} from Floor {passenger.StartFloor} to {passenger.DestinationFloor}. " +
                     $"Assigned to Elevator {Id}");
