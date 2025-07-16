@@ -15,7 +15,9 @@ namespace ElevatorApp.Business
 
         /// <inheritdoc/>
         public int CurrentFloor { get; private set; }
-        
+
+        public int QueueLength => passengerQueue.Count;
+
         public Direction Direction { get; private set; } = Direction.None;
         private readonly ConcurrentQueue<Passenger> passengerQueue = new();
         private readonly object moveLock = new();

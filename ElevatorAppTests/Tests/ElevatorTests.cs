@@ -14,7 +14,7 @@ namespace ElevatorAppTests.Tests
         {
             // Arrange and Act
             var random = new Random();
-            Action act = () => new SimulateElevator(null, random);
+            Action act = () => new SimulateElevator(null, 1, 10, random);
 
             // Assert
             act.Should().Throw<ArgumentNullException>()
@@ -25,7 +25,7 @@ namespace ElevatorAppTests.Tests
         public void GeneratePassengerRequest_ShouldHaveDifferentStartAndDestinationFloors()
         {
             // Arrange
-            var simulator = new SimulateElevator(new List<IElevator>(), new Random());
+            var simulator = new SimulateElevator(new List<IElevator>(), 3, 9, new Random());
 
             // Act
             var passenger = simulator.GeneratePassengerRequest();
